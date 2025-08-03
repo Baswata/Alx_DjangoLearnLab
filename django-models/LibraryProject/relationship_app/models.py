@@ -24,6 +24,13 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        permissions = [
+            ("can_add_book", "Can add a new book"),
+            ("can_change_book", "Can change book details"),
+            ("can_delete_book", "Can delete a book"),
+        ]
+
 
 # ----------------------
 # Library Model (ManyToMany to Book)
@@ -57,7 +64,7 @@ class UserProfile(models.Model):
         ('Member', 'Member'),
     ]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE)  # ✅ fixed cut-off line
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='Member')
 
     def __str__(self):

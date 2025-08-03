@@ -1,10 +1,12 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
-from . import views  # ✅ ALX checker looks for this
-
+from . import views  # 
 urlpatterns = [
     # Books and library views
     path('books/', views.list_books, name='list_books'),
+    path('books/add/', views.add_book, name='add_book'),  # ✅ secured add
+    path('books/edit/<int:pk>/', views.edit_book, name='edit_book'),  # ✅ secured edit
+    path('books/delete/<int:pk>/', views.delete_book, name='delete_book'),  # ✅ secured delete
     path('library/<int:pk>/', views.LibraryDetailView.as_view(), name='library_detail'),
 
     # User registration
