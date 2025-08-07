@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'accounts.CustomUser' 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,10 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookshelf',
     'relationship_app',
-    'accounts',
 ]
-
- 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
