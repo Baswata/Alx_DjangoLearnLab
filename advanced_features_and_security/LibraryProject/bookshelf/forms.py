@@ -37,3 +37,6 @@ class ArticleForm(forms.ModelForm):
             raise forms.ValidationError("Content contains unsafe HTML.")
 
         return content
+class ExampleForm(forms.Form):
+    name = forms.CharField(max_length=100)
+    email = forms.EmailField()
