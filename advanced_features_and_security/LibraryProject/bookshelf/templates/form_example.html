@@ -1,20 +1,14 @@
-{% load static %}
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <title>{{ action }} Book</title>
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Example Form</title>
 </head>
 <body>
-  <h1>{{ action }} Book</h1>
-
-  <form method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">{{ action }}</button>
-  </form>
-
-  <p><a href="{% url 'bookshelf:book_list' %}">Back to list</a></p>
+    <h1>Example Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
