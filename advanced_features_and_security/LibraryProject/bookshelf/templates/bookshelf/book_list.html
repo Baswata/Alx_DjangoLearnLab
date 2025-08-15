@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Books</title>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+</head>
+<body>
+  <h1>Books</h1>
+
+  <!-- GET form for search (no CSRF required for GET, but input validated in forms.py) -->
+  <form method="get" action=".">
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+
+  <p><a href="{% url 'bookshelf:book_create' %}">Add a new book</a></p>
+
+  <ul>
+    {% for book in books %}
+      <li>
+        <strong>{{ book.title|escape }}</strong> by {{ book.author|default:"Unknown"|escape }}
+        (ISBN: {{ book.isbn|default:"—"|escape }})
+        — <a href="{% url 'bookshelf:book_update' book.pk %}">Edit</a>
+      </li>
+    {% empty %}
+      <li>No books found.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
