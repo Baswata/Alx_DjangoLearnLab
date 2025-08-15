@@ -4,6 +4,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.http import require_http_methods
 from .models import Article
 from .forms import ArticleForm
+from .forms import ExampleForm
+
 
 # View an article (requires 'can_view' permission)
 @permission_required('your_app.can_view', raise_exception=True)
