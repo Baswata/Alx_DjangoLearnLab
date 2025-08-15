@@ -140,3 +140,13 @@ CSP_IMG_SRC = ("'self'", "data:")
 CSP_FONT_SRC = ("'self'",)
 CSP_CONNECT_SRC = ("'self'",)
 CSP_FRAME_ANCESTORS = ("'none'",)
+
+
+SECURE_SSL_REDIRECT = True              # Redirect HTTP → HTTPS
+SECURE_HSTS_SECONDS = 31536000          # HSTS: browsers remember HTTPS for 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True   # Include all subdomains
+SECURE_HSTS_PRELOAD = True   
+
+X_FRAME_OPTIONS = "DENY"               # No iframes allowed
+SECURE_CONTENT_TYPE_NOSNIFF = True     # No MIME sniffing
+SECURE_BROWSER_XSS_FILTER = True       # Enable browser XSS filter
